@@ -1,0 +1,41 @@
+<!-- extend base template -->
+{% extends 'base.html' %}
+<!-- extend base template -->
+
+<!-- load static -->
+{% load static %}
+<!-- load static -->
+
+<!-- title -->
+
+<!-- extend block -->
+{% block title %} Home {% endblock %}
+<!-- extend block -->
+
+<!-- title -->
+
+<!-- body -->
+
+<!-- extend block -->
+{% block body %}
+<div class="home-container">
+  <section class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="hero-box box has-background-grey-lighter">
+        <div class="project-logo">
+          <img src="{% static 'img/inventory.gif' %}" alt="" />
+        </div>
+        <div class="project-info">
+          <p class="title">
+            <small>#</small>Inventory<span class="has-text-danger">.</span>
+          </p>
+          <p class="subtitle">_Home inventory management system</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
+<!-- extend block -->
+
+<!-- body -->

@@ -1,0 +1,144 @@
+<!-- load static -->
+{% load static %}
+<!-- load static -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="{% static 'img/inventory.ico' %}"
+      type="image/x-icon"
+    />
+    <!-- favicon -->
+
+    <!-- bulma -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <!-- bulma -->
+
+    <!-- animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- animate.css -->
+
+    <!-- bootstrap icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
+      integrity="sha384-ejwKkLla8gPP8t2u0eQyL0Q/4ItcnyveF505U0NIobD/SMsNyXrLti6CWaD0L52l"
+      crossorigin="anonymous"
+    />
+    <!-- bootstrap icons -->
+
+    <!-- jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <!-- jquery -->
+
+    <!-- styles.css -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <!-- styles.css -->
+
+    <!-- title -->
+    <title>Inventory | {% block title %} {% endblock %}</title>
+    <!-- title -->
+  </head>
+  <body>
+    <!-- navigation -->
+    <nav
+      class="navbar is-white is-fixed-top"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <a class="navbar-item" href="{% url 'home' %}">
+          <h1 class="navbar-logo title has-text-primary">
+            <small>#</small>Inventory<span class="has-text-danger">.</span>
+          </h1>
+        </a>
+
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasic"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasic" class="navbar-menu">
+        <!--  -->
+        <div class="navbar-end">
+          <a class="navbar-item" href="#">Inventory</a>
+          <!--  -->
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link"> More </a>
+            <!--  -->
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="#">About</a>
+              <a class="navbar-item" href="#">Documentation</a>
+              <a class="navbar-item" href="#">For non-admin users</a>
+              <hr class="navbar-divider" />
+              <a class="navbar-item"> Report an issue </a>
+            </div>
+            <!--  -->
+          </div>
+          <!--  -->
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-info"> Log in </a>
+            </div>
+          </div>
+          <!--  -->
+        </div>
+        <!--  -->
+      </div>
+    </nav>
+    <!-- navigation -->
+
+    <!-- main body -->
+    <div class="main-body">
+      {% block body %}
+      <!--  -->
+      {% endblock %}
+    </div>
+    <!-- main body -->
+
+    <!-- footer -->
+    <footer>
+      <div class="has-text-centered footer-container">
+        <p>
+          made with <i class="bi bi-hearts has-text-danger"></i> by
+          <a href="https://github.com/LoisaKitakaya" class="has-text-link"
+            >Freedom Loisa</a
+          >
+        </p>
+      </div>
+    </footer>
+    <!-- footer -->
+
+    <!-- messages -->
+    {% include 'messages.html' %}
+    <!-- messages -->
+  </body>
+  <!-- main.js -->
+  <script src="{% static 'js/main.js' %}"></script>
+  <!-- main.js -->
+</html>

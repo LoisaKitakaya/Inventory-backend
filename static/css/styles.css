@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Prompt&display=swap");
+
+/* 
+font-family: 'Patrick Hand', cursive;
+font-family: 'Prompt', sans-serif;
+*/
+
+html,
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: 100vh !important;
+  width: 100% !important;
+  background-color: aliceblue !important;
+  font-family: "Prompt", sans-serif;
+}
+
+.hero-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 75%;
+  margin: auto;
+}
+
+.project-logo img {
+  height: 300px;
+  width: 300px;
+  border-radius: 0.35rem;
+}
+
+.footer-container {
+  padding: 1rem !important;
+  background-color: white !important;
+}
