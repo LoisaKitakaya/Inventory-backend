@@ -103,7 +103,19 @@
           <!--  -->
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-info"> Log in </a>
+              <!-- if -->
+              {% if user.is_authenticated %}
+              <!-- if -->
+              <a href="{% url 'logout' %}" class="button is-danger">
+                Log out
+              </a>
+              <!-- else -->
+              {% else %}
+              <!-- else -->
+              <a href="{% url 'login' %}" class="button is-info"> Log in </a>
+              <!-- endif -->
+              {% endif %}
+              <!-- endif -->
             </div>
           </div>
           <!--  -->
