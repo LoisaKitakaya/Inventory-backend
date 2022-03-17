@@ -1,0 +1,131 @@
+<!-- extend base template -->
+{% extends 'base.html' %}
+<!-- extend base template -->
+
+<!-- load static -->
+{% load static %}
+<!-- load static -->
+
+<!-- format localization -->
+{% load humanize %}
+<!-- format localization -->
+
+<!-- title -->
+
+<!-- extend block -->
+{% block title %} Store {% endblock %}
+<!-- extend block -->
+
+<!-- title -->
+
+<!-- body -->
+
+<!-- extend block -->
+{% block body %}
+<div class="home-container">
+  <div class="section">
+    <hr />
+    <div class="add-container">
+      <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+        <ul>
+          <li>
+            <a href="{% url 'home' %}" class="has-text-link"> Home </a>
+          </li>
+          <li class="is-active">
+            <a aria-current="page">Store </a>
+          </li>
+          <li>
+            <a href="{% url 'add_item' %}" class="has-text-link"
+              >Update Store</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <br />
+    <h1 class="title has-text-centered">{{ page_title }}</h1>
+    <div class="card">
+      <table class="table is-fullwidth table is-striped is-hoverable">
+        <thead>
+          <tr class="has-text-centered">
+            <th>#</th>
+            <th>Name</th>
+            <th>Quantity/Mass/Volume</th>
+            <th>Measurement In</th>
+            <th>Condition</th>
+            <th>Last Modified</th>
+            <th>Edit</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- if -->
+          {% if store_items %}
+          <!-- if -->
+
+          <!-- for -->
+          {% for item in store_items %}
+          <!-- for -->
+
+          <tr class="has-text-centered">
+            <th>{{ forloop.counter }}</th>
+            <th>
+              <a href="{% url 'store_item' item.slug %}" class="has-text-link"
+                >{{ item.name }}</a
+              >
+            </th>
+            <th>{{ item.quantity_mass_volume|intcomma }}</th>
+            <th>{{ item.measurement_in }}</th>
+            <th>{{ item.condition }}</th>
+            <th>{{ item.last_modified }}</th>
+            <th>
+              <a href="{% url 'edit_item' item.slug %}" class="has-text-info">
+                <i class="bi bi-pencil-square"></i>
+              </a>
+            </th>
+            <th>
+              <a href="{% url 'delete_item' item.id %}" class="has-text-danger">
+                <i class="bi bi-x-circle-fill"></i>
+              </a>
+            </th>
+          </tr>
+
+          <!-- endfor -->
+          {% endfor %}
+          <!-- endfor -->
+
+          <!-- else -->
+          {% else %}
+          <!-- else -->
+
+          <tr class="has-text-centered">
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+              <a class="has-text-info">
+                <i class="bi bi-pencil-square"></i>
+              </a>
+            </th>
+            <th>
+              <a class="has-text-danger">
+                <i class="bi bi-x-circle-fill"></i>
+              </a>
+            </th>
+          </tr>
+
+          <!-- endif -->
+          {% endif %}
+          <!-- endif -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
+<!-- extend block -->
+
+<!-- body -->

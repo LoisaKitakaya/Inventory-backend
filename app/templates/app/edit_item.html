@@ -1,0 +1,59 @@
+<!-- extend base template -->
+{% extends 'base.html' %}
+<!-- extend base template -->
+
+<!-- load static -->
+{% load static %}
+<!-- load static -->
+
+<!-- crispy forms -->
+{%load crispy_forms_tags %}
+<!-- crispy forms -->
+
+<!-- title -->
+
+<!-- extend block -->
+{% block title %} Edit Item {% endblock %}
+<!-- extend block -->
+
+<!-- title -->
+
+<!-- body -->
+
+<!-- extend block -->
+{% block body %}
+<div class="home-container">
+  <div class="section">
+    <hr />
+    <div class="breadcrumb-container">
+      <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+        <ul>
+          <li>
+            <a href="{% url 'home' %}" class="has-text-link"> Home </a>
+          </li>
+          <li>
+            <a href="{% url 'store' %}" class="has-text-link">Store</a>
+          </li>
+          <li class="is-active">
+            <a aria-current="page">Edit Item</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <br />
+    <h1 class="title has-text-centered">{{ page_title }}</h1>
+    <div class="">
+      <form method="post" class="form box">
+        {% csrf_token %}
+        <!--  -->
+        {{ form|crispy }}
+        <br />
+        <button type="submit" class="button is-success">Edit</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+<!-- extend block -->
+
+<!-- body -->

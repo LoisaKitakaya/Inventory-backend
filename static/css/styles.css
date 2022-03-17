@@ -12,7 +12,7 @@ body {
   min-height: 100vh !important;
   width: 100% !important;
   background-color: aliceblue !important;
-  font-family: "Prompt", sans-serif;
+  font-family: "Prompt", sans-serif !important;
 }
 
 .hero-box {
@@ -33,4 +33,32 @@ body {
 .footer-container {
   padding: 1rem !important;
   background-color: white !important;
+  font-family: "Patrick Hand", cursive !important;
+}
+
+.home-container {
+  min-height: 100vh !important;
+}
+
+.card,
+.box {
+  margin-top: 1rem;
+  background-color: transparent !important;
+  margin-bottom: 1rem;
+}
+
+.add-container,
+.breadcrumb-container {
+  width: fit-content;
+  margin: auto;
+}
+
+.form {
+  width: 65%;
+  margin: auto;
+}
+
+.detail-box {
+  width: 65% !important;
+  margin: auto !important;
 }

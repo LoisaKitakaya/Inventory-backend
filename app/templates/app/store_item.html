@@ -1,0 +1,77 @@
+<!-- extend base template -->
+{% extends 'base.html' %}
+<!-- extend base template -->
+
+<!-- load static -->
+{% load static %}
+<!-- load static -->
+
+<!-- title -->
+
+<!-- extend block -->
+{% block title %} Store Item {% endblock %}
+<!-- extend block -->
+
+<!-- title -->
+
+<!-- body -->
+
+<!-- extend block -->
+{% block body %}
+<div class="home-container">
+  <div class="section">
+    <hr />
+    <div class="breadcrumb-container">
+      <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+        <ul>
+          <li>
+            <a href="{% url 'home' %}" class="has-text-link"> Home </a>
+          </li>
+          <li>
+            <a href="{% url 'store' %}" class="has-text-link">Store</a>
+          </li>
+          <li class="is-active">
+            <a aria-current="page">Store Item</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <br />
+    <h1 class="title has-text-centered">{{ page_title }}</h1>
+    <!-- if -->
+    {% if item %}
+    <!-- if -->
+
+    <div class="box detail-box">
+      <!-- for -->
+      {% for i in item %}
+      <!-- for -->
+
+      <p class="subtitle is-underlined">{{ i.name }}</p>
+      <br />
+      <p><strong>Category: </strong> {{ i.category }}</p>
+      <p><strong>Location: </strong> {{ i.location }}</p>
+      <p>
+        <strong>Quantity Mass Volume: </strong> {{ i.quantity_mass_volume }}
+      </p>
+      <p><strong>Measurement in: </strong> {{ i.measurement_in }}</p>
+      <p><strong>Condition: </strong> {{ i.condition }}</p>
+      <p><strong>Type Make Model: </strong> {{ i.type_make_model }}</p>
+      <p><strong>More Details: </strong> {{ i.more_details }}</p>
+      <p><strong>Archived on: </strong> {{ i.archived_on }}</p>
+      <p><strong>Last Modified: </strong> {{ i.last_modified }}</p>
+
+      <!-- endfor -->
+      {% endfor %}
+      <!-- endfor -->
+    </div>
+
+    <!-- endif -->
+    {% endif %}
+    <!-- endif -->
+  </div>
+</div>
+{% endblock %}
+<!-- extend block -->
+
+<!-- body -->
