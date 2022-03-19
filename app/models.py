@@ -2,32 +2,16 @@ from django.db import models
 from slugger import AutoSlugField
 
 # Create your models here.
-
-
-class Category(models.Model):
-
-    category = models.CharField(max_length=200)
-
-    def __str__(self) -> str:
-        
-        return self.category
-
-class Location(models.Model):
-
-    location = models.CharField(max_length=200)
-
-    def __str__(self) -> str:
-        
-        return self.location
-
 class InventoryItem(models.Model):
 
+    # condition
     EXLNT = 'Excellent'
     GD = 'Good'
     AVG = 'Average'
     BD = 'Bad'
     PR = 'Poor'
 
+    # measurement
     L = 'Liters (L)'
     ml = 'Milliliters (ml)'
     Kg = 'Kilograms (Kg)'
@@ -36,6 +20,32 @@ class InventoryItem(models.Model):
     m = 'Meters (m)'
     ft = 'Feet (ft)'
     s = 'Singel Object(s)'
+
+    # categories
+    _plumbing = 'Plumbing'
+    _construction = 'Construction'
+    _animal = 'Animal'
+    _farm = 'Farm'
+    _indoor = 'Indoor'
+    _misc = 'Miscellenious'
+
+    # locations
+    EWS = 'East Wing Store'
+    WWS = 'West Wing Store'
+
+    CATEGORY_CHOICES = [
+        (_plumbing, 'Plumbing'),
+        (_construction, 'Construction'),
+        (_animal, 'Animal'),
+        (_farm, 'Farm'),
+        (_indoor, 'Indoor'),
+        (_misc, 'Miscellenious'),
+    ]
+
+    LOCATION_CHOICES = [
+        (EWS, 'East Wing Store'),
+        (WWS, 'West Wing Store'),
+    ]
 
     MEASUREMENT_IN_CHOICES = [
         (L, 'Liters'),
@@ -57,12 +67,10 @@ class InventoryItem(models.Model):
     ]
 
     name = models.CharField(max_length=200, blank=False, null=False)
-
-    slug = AutoSlugField(populate_from='name')
     
-    category = models.ForeignKey(Category, related_name='inventory_item', on_delete=models.CASCADE, blank=False, null=False)
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     
-    location = models.ForeignKey(Location, related_name='inventory_item', on_delete=models.CASCADE, blank=False, null=False)
+    location = models.CharField(max_length=50, choices=LOCATION_CHOICES)
 
     quantity_mass_volume = models.PositiveIntegerField(default=0)
 

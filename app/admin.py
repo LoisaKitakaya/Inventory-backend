@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Location, InventoryItem
+from .models import InventoryItem
 
 # Register your models here.
 
@@ -21,12 +21,4 @@ class AdminInventoryView(admin.ModelAdmin):
         'last_modified'
     ]
 
-    prepopulated_fields = {
-        'slug': ('name',)
-    }
-
 admin.site.register(InventoryItem, AdminInventoryView)
-
-admin.site.register(Category)
-
-admin.site.register(Location)
