@@ -58,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'inventory.urls'
@@ -151,13 +152,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://github.com/adamchainz/django-cors-headers
 
 CORS_ALLOWED_ORIGINS = [
-    os.environ.get('localhost_url'),
-    os.environ.get('frontend_url')
+    'http://localhost:8080',
+    'https://loisakitakaya.github.io/Inventory-Frontend/'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    os.environ.get('localhost_url'),
-    os.environ.get('frontend_url')
+    'http://localhost:8080',
+    'https://loisakitakaya.github.io/Inventory-Frontend/'
 ]
 
 CORS_ALLOW_METHODS = list(default_methods)
