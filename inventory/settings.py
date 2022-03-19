@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-zv=*&n3g2ox-iei--o&(y6bj9)kg)gr#z%-=#roq^nwa_l1$oc'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -88,8 +88,12 @@ WSGI_APPLICATION = 'inventory.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('NAME'),
+        'USER': os.environ.get('USER'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'HOST': os.environ.get('HOST'),
+        'PORT': '5432'
     }
 }
 
@@ -147,13 +151,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://github.com/adamchainz/django-cors-headers
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8080',
-    'https://loisakitakaya.github.io/Inventory-Frontend/'
+    os.environ.get('localhost_url'),
+    os.environ.get('frontend_url')
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:8080',
-    'https://loisakitakaya.github.io/Inventory-Frontend/'
+    os.environ.get('localhost_url'),
+    os.environ.get('frontend_url')
 ]
 
 CORS_ALLOW_METHODS = list(default_methods)
