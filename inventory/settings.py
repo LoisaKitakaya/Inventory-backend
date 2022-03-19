@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'app',
     'api',
-    'crispy_forms',
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
@@ -143,9 +142,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Custom settings
-
-# crispy forms
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # CORS settings
 # https://github.com/adamchainz/django-cors-headers
