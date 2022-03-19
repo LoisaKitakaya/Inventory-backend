@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-zv=*&n3g2ox-iei--o&(y6bj9)kg)gr#z%-=#roq^nwa_l1$oc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'inventory-backend.herokuapp.com']
 
 
 # Application definition
@@ -148,10 +148,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',
+    'https://loisakitakaya.github.io/Inventory-Frontend/'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:8080',
+    'https://loisakitakaya.github.io/Inventory-Frontend/'
 ]
 
 CORS_ALLOW_METHODS = list(default_methods)
